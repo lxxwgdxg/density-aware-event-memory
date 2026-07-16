@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: "DALA-Hydro: density-aware lead-adaptive high-flow event prediction code"
+message: "If you use this software, please cite the archived software and the associated article."
+type: software
+authors:
+  - family-names: "Li"
+    given-names: "Xue"
+    orcid: "https://orcid.org/0000-0002-9888-2165"
+  - family-names: "Wang"
+    given-names: "Li"
+  - family-names: "Yuan"
+    given-names: "Qijia"
+  - family-names: "Zhang"
+    given-names: "Zihan"
+  - family-names: "Sha"
+    given-names: "Jian"
+version: "1.2.0"
+date-released: "2026-07-16"
+repository-code: "https://github.com/lxxwgdxg/density-aware-event-memory"
+doi: "10.5281/zenodo.21277559"
+license: MIT
+keywords:
+  - hydrology
+  - high-flow exceedances
+  - lead-adaptive prediction
+  - large-sample hydrology
+  - evidence admission

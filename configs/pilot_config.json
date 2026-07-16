@@ -1,0 +1,93 @@
+{
+  "project_root": ".",
+  "raw_external": "data/raw_external",
+  "interim": "data/interim",
+  "processed": "data/processed",
+  "outputs": "outputs/pilot",
+  "caravan_zip": "data/raw_external/Caravan_v1_2/Caravan.zip",
+  "grdc_caravan_zip": "data/raw_external/GRDC_Caravan/GRDC_Caravan_extension_csv.zip",
+  "koppen_zip": "data/raw_external/Koppen_Geiger_CMIP6/koppen_geiger_tif.zip",
+  "koppen_member": "1991_2020/koppen_geiger_0p1.tif",
+  "density_features": [
+    "gauge_lat",
+    "gauge_lon",
+    "p_mean",
+    "aridity",
+    "frac_snow",
+    "seasonality",
+    "area_log10"
+  ],
+  "knn_k": 50,
+  "baseline": {
+    "gauges_per_density_quartile": 40,
+    "archive_targets_per_density_quartile": {
+      "Caravan_v1_2": 20,
+      "GRDC_Caravan": 20
+    },
+    "max_candidates_per_group": 250,
+    "train_samples_per_gauge": 80,
+    "test_samples_per_gauge": 30,
+    "train_start": "1981-01-01",
+    "train_end": "2008-12-31",
+    "test_start": "2013-01-01",
+    "test_end": "2020-12-31",
+    "target_horizon_days": 1,
+    "min_valid_streamflow_days": 1000,
+    "batch_size": 1024,
+    "epochs": 40,
+    "learning_rate": 0.001,
+    "hidden_dim": 128
+  },
+  "transfer": {
+    "train_gauges": 640,
+    "test_gauges_per_density_quartile": 40,
+    "test_archive_targets_per_density_quartile": {
+      "Caravan_v1_2": 20,
+      "GRDC_Caravan": 20
+    },
+    "max_test_candidates_per_group": 350,
+    "max_train_candidates": 2500,
+    "train_samples_per_gauge": 80,
+    "test_samples_per_gauge": 120,
+    "train_start": "1981-01-01",
+    "train_end": "2008-12-31",
+    "test_start": "2013-01-01",
+    "test_end": "2020-12-31",
+    "target_horizon_days": 1,
+    "min_valid_streamflow_days": 1000,
+    "batch_size": 2048,
+    "epochs": 50,
+    "learning_rate": 0.001,
+    "hidden_dim": 160,
+    "support_knn_k": 50
+  },
+  "transfer_v2": {
+    "train_gauges": 800,
+    "test_gauges_per_density_quartile": 40,
+    "test_archive_targets_per_density_quartile": {
+      "Caravan_v1_2": 20,
+      "GRDC_Caravan": 20
+    },
+    "max_test_candidates_per_group": 350,
+    "max_train_candidates": 3200,
+    "train_samples_per_gauge": 240,
+    "test_samples_per_gauge": 240,
+    "train_high_flow_fraction": 0.35,
+    "train_heavy_precip_fraction": 0.15,
+    "test_high_flow_fraction": 0.0,
+    "test_heavy_precip_fraction": 0.0,
+    "train_start": "1981-01-01",
+    "train_end": "2008-12-31",
+    "test_start": "2013-01-01",
+    "test_end": "2020-12-31",
+    "target_horizon_days": 1,
+    "min_valid_streamflow_days": 1000,
+    "batch_size": 2048,
+    "epochs": 70,
+    "learning_rate": 0.0008,
+    "hidden_dim": 192,
+    "embedding_dim": 64,
+    "support_knn_k": 50
+  },
+  "random_seed": 20260616
+}

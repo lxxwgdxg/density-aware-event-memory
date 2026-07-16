@@ -1,0 +1,33 @@
+{
+  "method": "Data-Anchored Lead-Adaptive Hydrology",
+  "score_name": "op_lead_adaptive_direct",
+  "event_quantiles": [0.95, 0.98, 0.99],
+  "forecast_leads_days": [1, 5, 7],
+  "protected_anchor": "base + 0.5 * max(met_static - base, 0) + 0.5 * max(support_aware_transfer - base, 0)",
+  "state_signal": "sigmoid(8 * ((log1p(q_current) - log1p(event_threshold)) + 0.5))",
+  "lead_weights": {
+    "H1": {
+      "all_regimes": 1.0
+    },
+    "H5": {
+      "support_frontier": 0.5,
+      "supported": 0.35,
+      "hyper_wet_supported": 0.0
+    },
+    "H7": {
+      "support_frontier": 0.3,
+      "supported": 0.21,
+      "hyper_wet_supported": 0.0
+    }
+  },
+  "final_score": "protected_anchor + lead_weight * max(state_signal - protected_anchor, 0)",
+  "comparison_anchor": "protected_anchor",
+  "score_construction_excludes": [
+    "target discharge",
+    "target log discharge",
+    "event label",
+    "future discharge"
+  ],
+  "forcing_interpretation": "Observed or reanalysis future meteorology is used as a perfect-forcing hindcast proxy; numerical-weather-prediction error is not represented."
+}
+
